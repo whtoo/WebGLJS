@@ -1,5 +1,5 @@
 import { mat3 } from 'gl-matrix'
-import main from './Utils/animatedVideoCube'
+import main from './chapter3/animatedVideoCube'
 
 window.onload = () => [
     main()

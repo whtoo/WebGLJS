@@ -7,12 +7,7 @@ import {
 } from "gl-matrix"
 
 import { initBuffers,initShaderProgram,initTexture,loadShader,updateTexture } from '../Utils/common'
- 
-var cubeRotation = 0.0;
-// will set to true when video can be copied to texture
-var copyVideo = false;
-
-
+ var cubeRotation = 0.1
 //
 // Start here
 //
@@ -100,9 +95,7 @@ function main() {
     // objects we'll be drawing.
     const buffers = initBuffers(gl);
 
-    const texture = initTexture(gl);
-
-    const video = setupVideo('Firefox.mp4');
+    const texture = initTexture(gl,'http://localhost:3000/starlord.jpg','image');
 
     var then = 0;
 
@@ -112,53 +105,12 @@ function main() {
         const deltaTime = now - then;
         then = now;
 
-        if (copyVideo) {
-            updateTexture(gl, texture, video);
-        }
-
         drawScene(gl, programInfo, buffers, texture, deltaTime);
 
         requestAnimationFrame(render);
     }
     requestAnimationFrame(render);
 }
-
-function setupVideo(url) {
-    const video = document.createElement('video');
-
-    var playing = false;
-    var timeupdate = false;
-
-    video.autoplay = true;
-    video.muted = true;
-    video.loop = true;
-
-    // Waiting for these 2 events ensures
-    // there is data in the video
-
-    video.addEventListener('playing', function () {
-        playing = true;
-        checkReady();
-    }, true);
-
-    video.addEventListener('timeupdate', function () {
-        timeupdate = true;
-        checkReady();
-    }, true);
-
-    video.src = url;
-    video.play();
-
-    function checkReady() {
-        if (playing && timeupdate) {
-            copyVideo = true;
-        }
-    }
-
-    return video;
-}
-
-
 
 
 /**

@@ -95,7 +95,7 @@ function main() {
     // objects we'll be drawing.
     const buffers = initBuffers(gl);
 
-    const texture = initTexture(gl,'http://localhost:3000/starlord.jpg','image');
+    const texture = initTexture(gl,'starlord.jpg','image');
 
     var then = 0;
 

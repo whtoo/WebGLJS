@@ -217,7 +217,10 @@ function initTexture(gl, url,urlType="video") {
         pixel);
     
     // Turn off mips and set  wrapping to clamp to edge so it
-    // will work regardless of the dimensions of the video.
+    // will work regardless of the dimensions of the pixels.
+    // Remeber webgl texture coordinate is reverse to image.
+    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,true)
+    
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);

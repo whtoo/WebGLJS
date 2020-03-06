@@ -95,7 +95,7 @@ function main() {
     // objects we'll be drawing.
     const buffers = initBuffers(gl);
 
-    const texture = initTexture(gl,'starlord.jpg','image');
+    const texture = initTexture(gl,'goldenstart.jpg','image');
 
     var then = 0;
 
@@ -159,7 +159,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
         [0, 0, 1]);       // axis to rotate around (Z)
     mat4.rotate(modelViewMatrix,  // destination matrix
         modelViewMatrix,  // matrix to rotate
-        cubeRotation * .7,// amount to rotate in radians
+        cubeRotation * .3,// amount to rotate in radians
         [0, 1, 0]);       // axis to rotate around (X)
 
     const normalMatrix = mat4.create();

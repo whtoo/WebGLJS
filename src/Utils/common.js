@@ -196,6 +196,7 @@ function initBuffers(gl) {
  * @param {string} url 
  * @param {'video' | 'image'} urlType 
  */
+/// activate texture unit
 function initTexture(gl, url,urlType="video") {
     const texture = gl.createTexture();
     gl.bindTexture(gl.TEXTURE_2D, texture);
@@ -234,6 +235,7 @@ function initTexture(gl, url,urlType="video") {
     return texture;
 }
 
+
 //
 // copy the video texture
 //
@@ -248,7 +250,8 @@ function updateTexture(gl, texture, pixels) {
     const internalFormat = gl.RGBA;
     const srcFormat = gl.RGBA;
     const srcType = gl.UNSIGNED_BYTE;
-    
+    /// bindTexture 1) 如果没有激活的纹理单元,它就默认activate TEXTURE0
+    /// 否则,使用激活的纹理单元
     gl.bindTexture(gl.TEXTURE_2D, texture);
     gl.texImage2D(gl.TEXTURE_2D, level, internalFormat,
         srcFormat, srcType, pixels);

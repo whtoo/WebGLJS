@@ -35,7 +35,33 @@ var GLControl = function(aVert,aIdx,aE,glDemo) {
     // The maximum number of frames
     // to animate
     this.FRAME_MAX = Number(512)
+    // The current display
+    // frame wthile an animation
+    // runs.
+    this.frameCount = Number(0)
 
+    // The starting angle of rotation
+    // in radians. Increments per animation
+    // frame
+    this.nRad = new Number(0)
+
+    // Array of GLEntity
+    this.aEntities = aE
+
+    /// The current demo or WebGL example
+    /// 'class' Object
+    this.glDemo = glDemo
+
+    // call the demo project's
+    // renderer for display
+    if(glDemo.render != null) {
+        this.render = glDemo.render
+    } else {
+        this.render = this.renderDefault
+    }
     
+
+
+
 }
 

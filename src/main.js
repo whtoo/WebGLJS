@@ -1,5 +1,5 @@
 import { mat3 } from 'gl-matrix'
-import { main } from './chapter2/animatedImageCube'
+import { main } from './chapter4/multipletextures'
 
 window.onload = () => [
     main()

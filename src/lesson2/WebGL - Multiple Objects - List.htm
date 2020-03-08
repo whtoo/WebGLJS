@@ -63,7 +63,8 @@ function main() {
   if (!gl) {
     return;
   }
-
+  
+  window.gl = gl
   var createFlattenedVertices = function(gl, vertices) {
     return webglUtils.createBufferInfoFromArrays(
         gl,

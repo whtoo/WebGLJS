@@ -26,7 +26,10 @@ function main() {
         alert('Unable to initialize WebGL. Your browser or machine may not support it.');
         return;
     }
-
+    var available_extensions = gl.getSupportedExtensions();
+    for (let ext of available_extensions) {
+        console.log(ext)
+    }
     // Vertex shader program
 
     const vsSource = `

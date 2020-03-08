@@ -1,5 +1,5 @@
 import { mat3 } from 'gl-matrix'
-import { main } from './chapter4/multipletextures'
+import { main } from './chapter5/renderingtoatexture'
 
 window.onload = () => [
     main()

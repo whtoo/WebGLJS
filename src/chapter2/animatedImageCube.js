@@ -13,7 +13,7 @@ import { initBuffers,initShaderProgram,initTexture,loadShader,updateTexture } fr
 //
 function main() {
     const canvas = document.querySelector('#glCanvas');
-    const gl = canvas.getContext('webgl');
+    const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
 
     // If we don't have a GL context, give up now
 
